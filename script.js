@@ -30,7 +30,7 @@ function kirimWA() {
   const jasa = document.getElementById('jasa').value;
   const notes = document.getElementById('notes').value;
 
-  const nomorTujuan = '6281234567890'; // Ganti dengan nomor WhatsApp kamu (format internasional, tanpa +)
+  const nomorTujuan = '6289998023803'; // Ganti dengan nomor WhatsApp kamu (format internasional, tanpa +)
 
   const pesan = `Halo admin Kirin Stars!%0ASaya ingin memesan:%0A- Nama: ${nama}%0A- Jasa: ${jasa}%0A- Catatan: ${notes}`;
 
