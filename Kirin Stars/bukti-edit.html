@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Bukti Hasil Edit - Kirin Stars</title>
+  <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    .bukti-section {
+      padding: 60px 20px;
+      background-color: #f7f7f7;
+      text-align: center;
+    }
+
+    .bukti-section h2 {
+      margin-bottom: 30px;
+      font-size: 28px;
+      color: #333;
+    }
+
+    .bukti-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 30px;
+    }
+
+    .bukti-item {
+      background: #fff;
+      padding: 20px;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      max-width: 600px;
+      width: 100%;
+    }
+
+    .bukti-item video,
+    .bukti-item img {
+      width: 100%;
+      border-radius: 8px;
+    }
+
+    .bukti-item p {
+      margin-top: 10px;
+      font-weight: bold;
+      color: #555;
+    }
+  </style>
+</head>
+<body>
+
+    <header id="bukti">
+        <div class="logo">🌟 Kirin Stars</div>
+        <button class="menu-toggle" id="menuToggle">&#9776;</button> <!-- hamburger icon -->
+        <nav id="navbar">
+            <a href="index.html">Beranda</a>
+            <a href="#bukti">Bukti</a>
+            <a href="index.html#services">Jasa</a>
+            <a href="index.html#order">Pesan</a>
+            <a href="index.html#contact">Kontak</a>
+        </nav>
+    </header>
+
+  <section class="bukti-section">
+    <h2>Hasil Editing</h2>
+    <div class="bukti-container">
+      <div class="bukti-item">
+        <video autoplay loop playsinline>
+          <source src="ok.mp4" type="video/mp4" />
+          Video tidak didukung browser Anda.
+        </video>
+        <p>Contoh Video JJ</p>
+      </div>
+      <div class="bukti-item">
+        <img src="omak.png" alt="Hasil Edit Foto">
+        <p>Contoh Edit Foto</p>
+      </div>
+      <div class="bukti-item">
+        <video autoplay loop playsinline>
+          <source src="ok.mp4" type="video/mp4" />
+          Video tidak didukung browser Anda.
+        </video>
+        <p>Contoh Video 3D</p>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 Kirin Stars. All rights reserved.</p>
+  </footer>
+  
+  <script src="script.js"></script>
+
+</body>
+</html>
