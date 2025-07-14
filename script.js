@@ -1,22 +1,17 @@
-// ======= Navbar Link Active =======
-const navLinks = document.querySelectorAll('nav a');
+const menuToggle = document.getElementById('menuToggle');
+const nav = document.querySelector('nav');
+const navLinks = document.querySelectorAll('nav a'); // semua link di nav
 
-navLinks.forEach(link => {
-  link.addEventListener('click', function () {
-    navLinks.forEach(nav => nav.classList.remove('active'));
-    this.classList.add('active');
-  });
+menuToggle.addEventListener('click', () => {
+  nav.classList.toggle('active');
 });
 
-// ======= Toggle Menu Responsive =======
-const menuToggle = document.querySelector('.menu-toggle');
-const nav = document.querySelector('nav');
-
-if (menuToggle && nav) {
-  menuToggle.addEventListener('click', () => {
-    nav.classList.toggle('active');
+// Menutup nav saat salah satu menu diklik
+navLinks.forEach(link => {
+  link.addEventListener('click', () => {
+    nav.classList.remove('active');
   });
-}
+});
 
 // ======= Kirim WhatsApp =======
 function kirimWA() {
