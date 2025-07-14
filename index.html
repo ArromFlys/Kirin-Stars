@@ -167,14 +167,42 @@
 
       if (!valid) return;
 
+      // Ambil harga dari jasa utama
+      let hargaUtama = 0;
+      switch (jasa.value) {
+        case "jj": hargaUtama = 15000; break;
+        case "gp": hargaUtama = 25000; break;
+        case "3d": hargaUtama = 30000; break;
+      }
+
+      // Ambil harga tambahan jika ada
+      let hargaTambahan = 0;
+      let tambahanText = "";
+      switch (tambahan.value) {
+        case "FHD+": 
+          hargaTambahan = 5000;
+          tambahanText = "🎁 Jasa tambahan: Full HD+ - Rp5.000\n";
+          break;
+        case "CC":
+          hargaTambahan = 10000;
+          tambahanText = "🎁 Jasa tambahan: Coloring - Rp10.000\n";
+          break;
+        case "NV":
+          hargaTambahan = 15000;
+          tambahanText = "🎁 Jasa tambahan: Node Video - Rp15.000\n";
+          break;
+      }
+
+      const totalHarga = hargaUtama + hargaTambahan;
       const jasaText = jasa.options[jasa.selectedIndex].text;
-      const tambahanText = tambahan.value !== "" ? `🎁 Jasa tambahan: ${tambahan.options[tambahan.selectedIndex].text}\n` : "";
+
       const pesan = `Halo, saya ingin memesan jasa edit dari *Kirin Stars*.\n\n` +
-                     `🧑 Nama: ${nama.value}\n` +
-                     `🎞️ Jasa utama: ${jasaText}\n` +
-                     `${tambahanText}` +
-                     `📝 Catatan tambahan: ${notes.value || "-"}\n\n` +
-                     `Terima kasih.`;
+                    `🧑 Nama: ${nama.value}\n` +
+                    `🎞️ Jasa utama: ${jasaText}\n` +
+                    `${tambahanText}` +
+                    `📝 Catatan tambahan: ${notes.value || "-"}\n\n` +
+                    `💰 *Total Harga: Rp${totalHarga.toLocaleString("id-ID")}*` +
+                    `\n\nTerima kasih.`;
 
       const noWA = "628998023803";
       const isMobile = /Android|iPhone|iPad/i.test(navigator.userAgent);
