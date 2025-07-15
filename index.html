@@ -52,7 +52,10 @@
     <h2>Form Pemesanan</h2>
     <form id="formPemesanan">
       <label for="nama">Nama</label>
-      <input type="text" id="nama" placeholder="Nama Anda">
+      <div class="input-wrapper">
+        <input type="text" id="nama" placeholder="Nama Anda" maxlength="50">
+        <span class="char-counter" id="namaCounter">0/50</span>
+      </div>
       <small class="error" id="namaError"></small>
 
       <label for="jasa">Pilih Jasa</label>
@@ -73,7 +76,10 @@
       </select>
 
       <label for="notes">Catatan</label>
-      <textarea id="notes" placeholder="Masukkan request tambahan..."></textarea>
+      <div class="input-wrapper">
+        <textarea id="notes" placeholder="Masukkan request tambahan..." maxlength="250"></textarea>
+        <span class="char-counter" id="notesCounter">0/250</span>
+      </div>
 
       <button type="submit" class="btn-1">Kirim Pemesanan</button>
     </form>
@@ -142,22 +148,29 @@
   <script>
     document.getElementById('formPemesanan').addEventListener('submit', function(e) {
       e.preventDefault();
+
       const nama = document.getElementById('nama');
       const jasa = document.getElementById('jasa');
       const tambahan = document.getElementById('tambahan');
       const notes = document.getElementById('notes');
+
       const namaError = document.getElementById('namaError');
       const jasaError = document.getElementById('jasaError');
 
       let valid = true;
 
-      if (nama.value.trim() === "") {
+      // Validasi Nama
+      if (nama.value.length > 50) {
+        namaError.textContent = "Nama maksimal 50 karakter.";
+        valid = false;
+      } else if (nama.value.trim() === "") {
         namaError.textContent = "Nama wajib diisi.";
         valid = false;
       } else {
         namaError.textContent = "";
       }
 
+      // Validasi Jasa
       if (jasa.value === "") {
         jasaError.textContent = "Pilih salah satu jasa.";
         valid = false;
@@ -165,9 +178,15 @@
         jasaError.textContent = "";
       }
 
+      // Validasi Catatan
+      if (notes.value.length > 250) {
+        alert("Catatan maksimal 250 karakter.");
+        valid = false;
+      }
+
       if (!valid) return;
 
-      // Ambil harga dari jasa utama
+      // Hitung Harga
       let hargaUtama = 0;
       switch (jasa.value) {
         case "jj": hargaUtama = 15000; break;
@@ -175,11 +194,10 @@
         case "3d": hargaUtama = 30000; break;
       }
 
-      // Ambil harga tambahan jika ada
       let hargaTambahan = 0;
       let tambahanText = "";
       switch (tambahan.value) {
-        case "FHD+": 
+        case "FHD+":
           hargaTambahan = 5000;
           tambahanText = "🎁 Jasa tambahan: Full HD+ - Rp5.000\n";
           break;
