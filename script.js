@@ -56,7 +56,7 @@ function kirimWA() {
     `Terima kasih.`;
 
   const isMobile = /Android|iPhone|iPad/i.test(navigator.userAgent);
-  const noWA = "628998023803";
+  const noWA = "6285337470689";
 
   const url = isMobile
     ? `https://wa.me/${noWA}?text=${encodeURIComponent(pesan)}`
