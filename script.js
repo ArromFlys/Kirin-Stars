@@ -56,7 +56,7 @@ function kirimWA() {
     `Terima kasih.`;
 
   const isMobile = /Android|iPhone|iPad/i.test(navigator.userAgent);
-  const noWA = "6285337470689";
+  const noWA = "628998023803";
 
   const url = isMobile
     ? `https://wa.me/${noWA}?text=${encodeURIComponent(pesan)}`
@@ -102,3 +102,16 @@ if (form) {
     }
   });
 }
+  // Counter karakter nama dan notes
+  const namaInput = document.getElementById('nama');
+  const namaCounter = document.getElementById('namaCounter');
+  const notesInput = document.getElementById('notes');
+  const notesCounter = document.getElementById('notesCounter');
+
+  namaInput.addEventListener('input', () => {
+    namaCounter.textContent = `${namaInput.value.length}/50`;
+  });
+
+  notesInput.addEventListener('input', () => {
+    notesCounter.textContent = `${notesInput.value.length}/250`;
+  });
