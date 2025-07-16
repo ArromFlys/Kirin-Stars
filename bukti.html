@@ -19,23 +19,48 @@
       <a href="index.html#contact">Kontak</a>
     </nav>
   </header>
-
     <section id="bukti" class="bukti-gallery">
         <h2>Bukti Pesanan Pelanggan</h2>
         <div class="gallery-grid">
-            <img src="omak.png" alt="Bukti 1">
-            <img src="omak.png" alt="Bukti 2">
-            <img src="omak.png" alt="Bukti 3">
-            <img src="omak.png" alt="Bukti 4">
-            <img src="omak.png" alt="Bukti 5">
-            <img src="omak.png" alt="Bukti 6">
-            <img src="omak.png" alt="Bukti 7">
-            <img src="omak.png" alt="Bukti 8">
-            <img src="omak.png" alt="Bukti 9">
-            <img src="omak.png" alt="Bukti 10">
+            <img src="Cust1.jpeg" alt="Bukti 1">
+            <img src="Cust2.jpeg" alt="Bukti 2">
+            <img src="Cust3.jpeg" alt="Bukti 3">
+            <img src="Cust4.jpeg" alt="Bukti 4">
             <!-- Tambahkan gambar sesuai kebutuhan -->
         </div>
     </section>
-  <script src="script.js"></script>
+    <!-- Modal -->
+    <div id="imageModal" class="modal">
+      <span class="close">&times;</span>
+      <img class="modal-content" id="modalImage">
+    </div>
+    <script src="script.js"></script>
+    <script>
+  // Ambil elemen modal dan gambar
+    const modal = document.getElementById('imageModal');
+    const modalImg = document.getElementById('modalImage');
+    const closeBtn = document.querySelector('.close');
+
+    // Tambahkan event click ke setiap gambar
+    document.querySelectorAll('.gallery-grid img').forEach(img => {
+      img.addEventListener('click', () => {
+        modal.style.display = 'block';
+        modalImg.src = img.src;
+        modalImg.alt = img.alt;
+      });
+    });
+
+    // Tutup modal saat tombol x diklik
+    closeBtn.onclick = function () {
+      modal.style.display = 'none';
+    }
+
+    // Tutup modal saat klik di luar gambar
+    window.onclick = function (event) {
+      if (event.target == modal) {
+        modal.style.display = 'none';
+      }
+    }
+  </script>
 </body>
 </html>
